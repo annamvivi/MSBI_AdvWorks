@@ -1,0 +1,77 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/25/2023 10:29:27 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-PCQSOCPF"
+  DTS:CreatorName="LAPTOP-PCQSOCPF\HP"
+  DTS:DTSID="{198B119F-2033-4E64-A6A7-97B2EC8D53AB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5228.0"
+  DTS:LocaleID="1057"
+  DTS:ObjectName="RefreshSeller"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{D1A4D28F-E705-4986-AD47-0096AAF5D258}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.109.46.AWN_DW_Demo.SA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D289678C-0500-4D81-8EB4-2993712935AE}"
+      DTS:ObjectName="192.168.109.46.AWN_DW_Demo.SA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=192.168.109.46;User ID=SA;Initial Catalog=AWN_DW_Demo;Provider=SQLNCLI11.1;Application Name=SSIS-RefreshSeller-{D289678C-0500-4D81-8EB4-2993712935AE}192.168.109.46.AWN_DW_Demo.SA;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATEDEtiXf+UqIt43o/hGoOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACr/+uAKEXQ2OYLsljDLtMLWH0c7p03gHFZhCdimT/IBgAAAAAOgAAAAAIAACAAAAC/MdvbRTjaS54YMPlYzTT1Fx6wk9tbzi4Q1Ut27TxUzCAAAABR5KATawRrQHkQlQlqa35QCSSDQiwMPvEQK+G89VwPOUAAAAAuwN1FoRCuD9BRUrg4Ku7DXdXatFifvE80FfdfvRkxI88mhYhKnG5HeKHlcKHulK2E1kCeOb2X02YXyTPPbmt8</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Reseller"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{045F8BAB-B032-4911-8062-90D072E80B43}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Reseller"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D289678C-0500-4D81-8EB4-2993712935AE}"
+          SQLTask:SqlStatementSource="EXEC [dbo].[Refresh_Reseller]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Load Reseller"
+          TopLeft="238,103" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

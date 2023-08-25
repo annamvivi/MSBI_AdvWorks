@@ -1,0 +1,77 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/23/2023 11:12:56 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-PCQSOCPF"
+  DTS:CreatorName="LAPTOP-PCQSOCPF\HP"
+  DTS:DTSID="{83161925-FA0F-4706-931B-71BB439B093E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5228.0"
+  DTS:LocaleID="1057"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{B9B6376C-1833-4DDF-B418-705FD79C4BF2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.109.46.AWN_DW_Demo.SA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{53FB7189-D32B-424C-9368-D9398C50B53B}"
+      DTS:ObjectName="192.168.109.46.AWN_DW_Demo.SA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=192.168.109.46;User ID=SA;Initial Catalog=AWN_DW_Demo;Provider=SQLNCLI11.1;Application Name=SSIS-Package1-{53FB7189-D32B-424C-9368-D9398C50B53B}192.168.109.46.AWN_DW_Demo.SA;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATEDEtiXf+UqIt43o/hGoOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACyxm+Hgapguil8Ym567x6pAs3LG0i0JADNjzGlqJvUeAAAAAAOgAAAAAIAACAAAADw2nvKiJmDWkq/cg42iovLhemDuM7Ev/n8jiJJF0qOwyAAAAATVDsdwhYysbLPtyOMd6tgZajdpFm0tcq8BU8EUVdUS0AAAADCMbT0tkQTED4jtAQtG9YOppqVjK2YJeJOvz5m6ynaUHcBP9nuvA0JR4rpM1iMnE5Hs3USIsnVgwgto+7Y7H9Y</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load DimProduct"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FE1DD195-6143-4BC1-8B6B-9ACDBEB7ACA4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load DimProduct"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{53FB7189-D32B-424C-9368-D9398C50B53B}"
+          SQLTask:SqlStatementSource="EXEC [dbo].[Refresh_DimProduct]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Load DimProduct"
+          TopLeft="229,97" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
