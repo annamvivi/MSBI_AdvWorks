@@ -11,8 +11,8 @@
   DTS:LocaleID="1057"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{54871068-897F-4758-86F5-C74B1D688D20}">
+  DTS:VersionBuild="70"
+  DTS:VersionGUID="{46A28423-0328-4505-90A2-B01CCC3E03CC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATEDEtiXf+UqIt43o/hGoOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABplZ2+tw5CgvracS5LvnAbe6JO8MV/HBxvTXmnwIbP3wAAAAAOgAAAAAIAACAAAABYYHWdHyLGmLY63xABLZMsbfX/ALEt9KAQrr1RCH3E5CAAAAAEZmyzUNnapGK04sy6l9menMcHJFkmxwHriac6Pde8tkAAAADPnEHzq58xFMj7f0Df6yue2dxOqd1WDeO7TuFQBlMeAQtzZu6LxM2y+cUhTghmehCn/u+DWW4+n/6XXzVNyyiN</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATEDEtiXf+UqIt43o/hGoOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABvrIKGmfRmX0Sjo358UsF9ub6kIdHSg0vFg1k8DaAdZwAAAAAOgAAAAAIAACAAAAACIDYaekhCOgTpqR6gzZz5Iuu2GnOURLsSnGruOVgCziAAAADyi6j1sBG5M1dU197SoS7JhqModtrKYcPq2A6Y4B26rUAAAACromD4/65pRw1vV6qcBTQCEfcuZQ0hQzWKQjjsuer2TlE5CB1PtiTCv5Nq3Np9WEXU0lDYoPUNBscDeYaRyZaD</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATEDEtiXf+UqIt43o/hGoOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADhc4dvpH+yGnQYwyNsKh10csSzbw+/q2FjnnS+3q29GQAAAAAOgAAAAAIAACAAAAD4Vo5mbi4XfCZ77HdMMgO93I+lVGSNhzt6EOSw7pVd0iAAAADHAsnm/fSyPAM7JfDh35ekilb+ydrxO4CDaFR3lIdGs0AAAAAUeSUVgA3PeRJ7+WAWkm9sBRh+7OZr0L8YA+xS/go1k4Bqdxze878ETAynaPypKaZhSqKY6Zh2rlgKpjCz0A1q</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATEDEtiXf+UqIt43o/hGoOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABOXM5xQEkcCvr5lCB6Q1hk2mklzaQ0m6uosLqPPQ4jAAAAAAAOgAAAAAIAACAAAAAYS8095HYCrKadGdosqme95qXj5qG60PcBdHRT2EfDwiAAAAATSZMWa20fT0vdLqmDMwSvh9s5Xk9hJMVTz3PjjxsTwkAAAACPXIFqkDCUlT28Wz8E/oIAt2hzJDP8QP8wHLgXlxdlPW+7qrO+i+072cLoqn8LdhBiwR246BW0hRm5vsWtISgw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -787,7 +787,7 @@ where [refTable].[FullDateAlternateKey] = ?</property>
       ,[StartDate] , isnull([EndDate],'2099-12-31') EndDate
       ,[Status]
   FROM [AWN_DW_Demo].[dbo].[DimEmployee]) [refTable]
-where [refTable].[StartDate]=? and [refTable].[EmployeeNationalIDAlternateKey]=? and [refTable].[EndDate]=?</property>
+where [refTable].[StartDate] = ? and [refTable].[EmployeeNationalIDAlternateKey] = ? and [refTable].[EndDate] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -806,7 +806,7 @@ where [refTable].[StartDate]=? and [refTable].[EmployeeNationalIDAlternateKey]=?
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">20</property>
+                  name="NoMatchCachePercentage">0</property>
                 <property
                   dataType="System.Int32"
                   description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
@@ -1331,7 +1331,7 @@ where [refTable].[ResellerAlternateKey] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load Reseller Sales Fact\369:invalid};</property>
+                  name="ParameterMap">#{Package\Load Reseller Sales Fact\351:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2072,22 +2072,10 @@ where [refTable].[SalesTerritoryKey] = ?</property>
                       lineageId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
                       name="ShipDate" />
                     <outputColumn
-                      refId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[ResellerID]"
-                      dataType="wstr"
-                      length="15"
-                      lineageId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[ResellerID]"
-                      name="ResellerID" />
-                    <outputColumn
                       refId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[TerritoryID]"
                       dataType="i4"
                       lineageId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[TerritoryID]"
                       name="TerritoryID" />
-                    <outputColumn
-                      refId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[NationalIDNumber]"
-                      dataType="wstr"
-                      length="15"
-                      lineageId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[NationalIDNumber]"
-                      name="NationalIDNumber" />
                     <outputColumn
                       refId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[Currency]"
                       dataType="wstr"
@@ -2138,6 +2126,18 @@ where [refTable].[SalesTerritoryKey] = ?</property>
                       lineageId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[ResellerID]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[ResellerID]"
+                      name="ResellerID" />
+                    <outputColumn
+                      refId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[NationalIDNumber]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Load Reseller Sales Fact\Read Stage.Outputs[OLE DB Source Error Output].Columns[NationalIDNumber]"
+                      name="NationalIDNumber" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -4494,7 +4494,7 @@ where [refTable].[SalesTerritoryKey] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4504,7 +4504,7 @@ where [refTable].[SalesTerritoryKey] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4735,7 +4735,9 @@ where [refTable].[SalesTerritoryKey] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4996,7 +4998,7 @@ where [refTable].[SalesTerritoryKey] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -5006,7 +5008,7 @@ where [refTable].[SalesTerritoryKey] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

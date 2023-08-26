@@ -1,0 +1,8 @@
+C:\linux\business_intelligence\ADV_SSAS\ADV_SSAS\bin\Model.asdatabase
+C:\linux\business_intelligence\ADV_SSAS\ADV_SSAS\bin\Model.deploymenttargets
+C:\linux\business_intelligence\ADV_SSAS\ADV_SSAS\bin\Model.deploymentoptions
+C:\linux\business_intelligence\ADV_SSAS\ADV_SSAS\obj\Development\ADV_SSAS.smproj.AssemblyReference.cache
+C:\linux\business_intelligence\ADV_SSAS\ADV_SSAS\obj\Development\ADV_SSAS.smproj.CoreCompileInputs.cache
+C:\linux\business_intelligence\ADV_SSAS\ADV_SSAS\obj\Development\Model.asdatabase
+C:\linux\business_intelligence\ADV_SSAS\ADV_SSAS\obj\Development\Model.deploymentoptions
+C:\linux\business_intelligence\ADV_SSAS\ADV_SSAS\obj\Development\Model.deploymenttargets
